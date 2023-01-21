@@ -1,24 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Y Axis on MIDI CC1
+    void OnActivationAxis(InputValue value)
     {
-        
+        print("Activation: "+value.Get<float>());
     }
 
-    // Update is called once per frame
-    void Update()
+    // X Axis on MIDI CC2
+    void OnPleasantAxis(InputValue value)
     {
-        
-    }
-
-    void OnActivationAxis() {
-        print("test");
-    }
-
-    void OnMIDI() {
-        print("MIDI");
+        print("Pleasant: "+value.Get<float>());
     }
 }

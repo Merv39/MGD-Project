@@ -9,19 +9,19 @@
                     "name": "ActivationAxis",
                     "type": "Value",
                     "id": "8487a538-3cfb-4401-b6b6-3006b681aed6",
-                    "expectedControlType": "MidiValue",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MIDI",
-                    "type": "Button",
-                    "id": "c66d248c-7b28-4727-953b-f536e0308cda",
-                    "expectedControlType": "Button",
+                    "name": "PleasantAxis",
+                    "type": "Value",
+                    "id": "0e45ae66-596b-47fa-92d2-6ed2cf9913ae",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -38,12 +38,12 @@
                 },
                 {
                     "name": "",
-                    "id": "6adfd589-43c0-4ba7-a5be-2b95d828e015",
-                    "path": "<MidiDevice>/note048",
+                    "id": "44945f2b-3ce5-423d-bbf1-ed078063a32b",
+                    "path": "<MidiDevice>/control002",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MIDI",
+                    "action": "PleasantAxis",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
