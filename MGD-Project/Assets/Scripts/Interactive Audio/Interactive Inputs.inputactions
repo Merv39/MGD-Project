@@ -1,0 +1,54 @@
+{
+    "name": "Interactive Inputs",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "e3c2d89e-fed1-43fe-983b-4a8bc848fa77",
+            "actions": [
+                {
+                    "name": "ActivationAxis",
+                    "type": "Value",
+                    "id": "8487a538-3cfb-4401-b6b6-3006b681aed6",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MIDI",
+                    "type": "Button",
+                    "id": "c66d248c-7b28-4727-953b-f536e0308cda",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "049694c4-01b5-4be9-9211-47dda75bff99",
+                    "path": "<MidiDevice>/control001",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivationAxis",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6adfd589-43c0-4ba7-a5be-2b95d828e015",
+                    "path": "<MidiDevice>/note048",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MIDI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
