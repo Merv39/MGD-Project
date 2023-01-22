@@ -6,18 +6,18 @@
             "id": "e3c2d89e-fed1-43fe-983b-4a8bc848fa77",
             "actions": [
                 {
-                    "name": "ActivationAxis",
+                    "name": "PleasantAxis",
                     "type": "Value",
-                    "id": "8487a538-3cfb-4401-b6b6-3006b681aed6",
+                    "id": "0e45ae66-596b-47fa-92d2-6ed2cf9913ae",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "PleasantAxis",
+                    "name": "ActivationAxis",
                     "type": "Value",
-                    "id": "0e45ae66-596b-47fa-92d2-6ed2cf9913ae",
+                    "id": "8487a538-3cfb-4401-b6b6-3006b681aed6",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -27,23 +27,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "049694c4-01b5-4be9-9211-47dda75bff99",
+                    "id": "44945f2b-3ce5-423d-bbf1-ed078063a32b",
                     "path": "<MidiDevice>/control001",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ActivationAxis",
+                    "action": "PleasantAxis",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "44945f2b-3ce5-423d-bbf1-ed078063a32b",
+                    "id": "049694c4-01b5-4be9-9211-47dda75bff99",
                     "path": "<MidiDevice>/control002",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PleasantAxis",
+                    "action": "ActivationAxis",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
