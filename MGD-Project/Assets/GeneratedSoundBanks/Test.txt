@@ -1,0 +1,12 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1183385154	Music_Player			\Default Work Unit\Music_Player	
+
+Effect plug-ins	ID	Name	Type				Notes
+	86135251	Flanger (Custom)	Wwise Flanger			
+	429377562	Low Pass	Wwise Parametric EQ			
+	432801578	Guitar Distortion (Custom)	Wwise Guitar Distortion			
+	3216246379	Space_Dreaming	Wwise RoomVerb			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	1057543038	Arp_noreverb	C:\Users\Hero\Documents\GitHub\MGD-Project1\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Arp_noreverb_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Arp_noreverb		14043572
+

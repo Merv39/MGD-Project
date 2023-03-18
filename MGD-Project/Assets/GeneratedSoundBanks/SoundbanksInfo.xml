@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../../MGD-Project_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../MGD-Project_WwiseProject/.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../MGD-Project_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{63B104F4-FB9B-4A28-BFA2-FBF910B4DF0C}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3157003241" Type="User" Language="SFX" Hash="{09FF7EEA-2427-EC01-776A-777D0808688B}">
+			<ShortName>Test</ShortName>
+			<Path>Test.bnk</Path>
+			<Media>
+				<File Id="1057543038" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Arp_noreverb.wav</ShortName>
+					<CachePath>SFX/Stems/Arp_noreverb_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="86135251" Name="Flanger (Custom)" LibName="Wwise Flanger" LibId="8192003"/>
+					<Plugin Id="429377562" Name="Low Pass" LibName="Wwise Parametric EQ" LibId="6881283"/>
+					<Plugin Id="432801578" Name="Guitar Distortion (Custom)" LibName="Wwise Guitar Distortion" LibId="8257539"/>
+				</Custom>
+				<ShareSets>
+					<Plugin Id="3216246379" Name="Space_Dreaming" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="1183385154" Name="Music_Player" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="1057543038"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="86135251"/>
+							<PluginRef Id="429377562"/>
+							<PluginRef Id="432801578"/>
+						</Custom>
+						<ShareSets>
+							<PluginRef Id="3216246379"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{C686CF04-8A19-E25F-F766-C253B57CACB4}</FileHash>
+</SoundBanksInfo>
