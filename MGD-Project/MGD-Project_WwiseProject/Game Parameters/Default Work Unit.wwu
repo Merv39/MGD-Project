@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0AC16786-1453-46C9-A7F2-80053F773CE1}" SchemaVersion="110">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{0AC16786-1453-46C9-A7F2-80053F773CE1}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0.5"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Volume" ID="{3B6BE39B-E499-4966-AAE3-2651754CC308}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

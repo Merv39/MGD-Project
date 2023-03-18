@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}" SchemaVersion="110">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Stems" ID="{2F4B84DA-F20C-4090-97F5-D126E8B4D8EC}" ShortID="469065190">
+					<ChildrenList>
+						<Sound Name="Arp_noreverb" ID="{DD1FCA1B-ADAF-4B9F-B395-BC351B6DF3F2}" ShortID="415731724">
+							<PropertyList>
+								<Property Name="BypassEffect3" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Flanger (Custom)" ID="{9E53B047-F3BA-40A2-9D97-BC6CCF7D0525}" ShortID="86135251" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
+											<PropertyList>
+												<Property Name="DelayTime" Type="Real32" Value="10"/>
+											</PropertyList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{903A990B-E620-4ACB-B372-83014C62EB6A}" ShortID="644757983">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{41EBAE2D-A4AF-4508-AA73-1C93EFB3924E}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>0.5</XPos>
+																						<YPos>-0</YPos>
+																						<Flags>0</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>100</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="Effect1" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Space_Dreaming" ID="{4FF7C4B2-37B0-4DFF-8E8A-1420102AE2DD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect2">
+									<Custom>
+										<Effect Name="Guitar Distortion (Custom)" ID="{9C525C21-8D57-48AA-9957-C8DA6C038DD3}" ShortID="432801578" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+											<PropertyList>
+												<Property Name="DistortionDrive" Type="Real32" Value="73"/>
+												<Property Name="DistortionType" Type="int32" Value="1"/>
+												<Property Name="OutputLevel" Type="Real32" Value="-2.5"/>
+											</PropertyList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{356424F6-0336-4455-B539-9E06E3036C58}" ShortID="569385734">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{77DB20EE-28E5-490F-B06E-080B5BEB3DBA}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>0.49602</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>0</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>100</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="Effect3" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="Low_Pass_20KHz" ID="{830124FB-B9D5-4AE8-846E-E94A74652666}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Arp_noreverb" ID="{85D2095E-E8B8-444F-AF8C-C16397513CF3}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Arp_noreverb.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1057543038"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{434ECC9E-B3A3-4B1F-B3F9-50C967C8E47B}" ShortID="22096265">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="BypassEffect1"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{7ACF5DA6-D3F3-4721-B83F-0755D52682E1}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>0.49968</XPos>
+																		<YPos>1</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>1</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Arp_noreverb" ID="{85D2095E-E8B8-444F-AF8C-C16397513CF3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Atmosphere" ID="{6174FE2F-CFE3-49BB-A5A4-49908D773C91}" ShortID="674641432">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Atmosphere" ID="{45BA3915-987C-489F-A40D-B289F94A834D}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Atmosphere.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="717098215"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{27312842-9C1D-4C4F-BF2A-00A1B11C719A}" ShortID="427413873">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="OutputBusVolume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{E7250BE9-D99A-40B6-8350-B3A19FB15F6E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-0</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>SCurve</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>0.5</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Atmosphere" ID="{45BA3915-987C-489F-A40D-B289F94A834D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Bass" ID="{23A9FDE2-B23C-448A-94FD-20593E02C599}" ShortID="674688497">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Guitar Distortion (Custom)" ID="{437FCF12-F2E1-4DBB-835A-AC578E09DCD1}" ShortID="666558909" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+											<PropertyList>
+												<Property Name="DistortionDrive" Type="Real32" Value="100"/>
+												<Property Name="DistortionType" Type="int32" Value="4"/>
+											</PropertyList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{8443E665-201C-4BCE-9354-0292262DD3E7}" ShortID="369032832">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{3C422A8A-4633-4342-896F-B2949BCA98DC}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>100</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Bass" ID="{1CAE6AC0-5291-468E-B631-CE16C3C93E8B}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Bass.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="473312615"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Bass" ID="{1CAE6AC0-5291-468E-B631-CE16C3C93E8B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Chiptune" ID="{0E0E8C77-FB83-4211-91F1-A4C682EFC8CA}" ShortID="615647019">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Guitar Distortion (Custom)" ID="{66A5F131-3DB3-4DFE-BAC8-EE629FA295AC}" ShortID="463515912" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+											<PropertyList>
+												<Property Name="DistortionType" Type="int32" Value="1"/>
+											</PropertyList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{005FB696-4E6B-4EBD-844B-DF3A76A17696}" ShortID="361443972">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{F20F30AD-F986-4855-A2DC-FD4E3036553D}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>0.5</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>0</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>100</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Chiptune" ID="{E52BB4A3-40A9-4A4C-8AB3-F8C61CC7660B}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Chiptune.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="190446513"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Chiptune" ID="{E52BB4A3-40A9-4A4C-8AB3-F8C61CC7660B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Drums" ID="{1C0DB70B-755A-4BA0-9373-003502D6FC66}" ShortID="716624083">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Guitar Distortion (Custom)" ID="{CC608C5C-9BFD-45CC-9670-85BFE170356E}" ShortID="761320926" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+											<PropertyList>
+												<Property Name="DistortionType" Type="int32" Value="4"/>
+											</PropertyList>
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{85F26818-2DFF-4022-BFF5-DC999053F300}" ShortID="654633571">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{D9E02C0A-00A0-44BD-9F61-79E32FCA63BF}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="1"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>0.5</XPos>
+																						<YPos>-100</YPos>
+																						<Flags>0</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>100</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Drums" ID="{E8E7946E-4E38-424D-B2FF-BB1330DC1E84}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Drums.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="755715289"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Drums" ID="{E8E7946E-4E38-424D-B2FF-BB1330DC1E84}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="HarpCeleste" ID="{39E61E02-F3A4-4339-BB61-A46F300C979A}" ShortID="48898241">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="HarpCeleste" ID="{3AD8BB41-2314-4D81-B668-7E2F984686D5}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\HarpCeleste.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="973255442"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="HarpCeleste" ID="{3AD8BB41-2314-4D81-B668-7E2F984686D5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Piano" ID="{8EE95F70-824A-49E1-9988-66648B74B391}" ShortID="792657189">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Hall_Large" ID="{6D154498-FF6D-4823-96FC-56841B70E079}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Piano" ID="{806A4E40-E38A-435B-8FE4-E7088AD3DEAC}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Piano.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="230362800"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Piano" ID="{806A4E40-E38A-435B-8FE4-E7088AD3DEAC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Sub" ID="{026D4118-EB77-4E22-8605-95F0AD210FD2}" ShortID="925967366">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Sub" ID="{8072DEBF-2FA7-4178-8B5C-10AF55C9FF24}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\Sub.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="698519120"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sub" ID="{8072DEBF-2FA7-4178-8B5C-10AF55C9FF24}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="SynthString" ID="{AAD4FBE5-B14B-4D36-A24D-74D9B07A52AB}" ShortID="243794406">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CBBBA81F-DEDA-4DF1-A610-DD7D1EFE587C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6498E6AE-57D8-4FBE-B31A-E779DA135689}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SynthString" ID="{37071976-BB97-4EDE-89F0-D0598E4075F7}">
+									<Language>SFX</Language>
+									<AudioFile>Stems\SynthString.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="911754284"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{869E39B7-588D-4B94-B904-B35D1FEBF428}" ShortID="47215112">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}" WorkUnitID="{0AC16786-1453-46C9-A7F2-80053F773CE1}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{58C02F10-9A75-4115-B479-F5FA40C6D21C}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>9</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>SCurve</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>0.5</XPos>
+																		<YPos>0.10468</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>SCurve</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="SynthString" ID="{37071976-BB97-4EDE-89F0-D0598E4075F7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

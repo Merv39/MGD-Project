@@ -62,6 +62,6 @@ crashlytics-build.properties
 
 MGD-Project/UserSettings/EditorUserSettings.asset
 MGD-Project/Assets/Wwise/
-MGD-Project/MGD-Project_WwiseProject/
 MGD-Project/WwiseUnityIntegration_Mac_Src.zip
 MGD-Project/WwiseUnityIntegration_Windows_Src.zip
+MGD-Project/MGD-Project_WwiseProject/GeneratedSoundBanks/

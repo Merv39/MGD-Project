@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{068CB19E-9CB7-47D9-B088-E9F6BA227EFF}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{068CB19E-9CB7-47D9-B088-E9F6BA227EFF}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Music_Player" ID="{CB13B25E-DE2B-453C-B2FD-3DC960BD1E11}">
+					<ChildrenList>
+						<Action Name="" ID="{34485255-1DEF-46E8-AA08-E1E31DBED4FD}" ShortID="1008744011">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Arp_noreverb" ID="{DD1FCA1B-ADAF-4B9F-B395-BC351B6DF3F2}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{5A62C7A7-7914-482E-BEAC-736441CAE3D1}" ShortID="878227192">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Atmosphere" ID="{6174FE2F-CFE3-49BB-A5A4-49908D773C91}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{908ABD3E-114C-4EA6-91C2-38CEE34A1431}" ShortID="633895654">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Bass" ID="{23A9FDE2-B23C-448A-94FD-20593E02C599}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{643D75D0-D230-4842-9F32-3BD01D651DF0}" ShortID="583698905">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Chiptune" ID="{0E0E8C77-FB83-4211-91F1-A4C682EFC8CA}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{897992A9-F5E2-472B-82FE-F88F631DF1BA}" ShortID="356864731">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Drums" ID="{1C0DB70B-755A-4BA0-9373-003502D6FC66}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4FE1CBEC-5053-405E-AB3D-9A79EC02B190}" ShortID="292751033">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HarpCeleste" ID="{39E61E02-F3A4-4339-BB61-A46F300C979A}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{26F85A32-2BCB-4ECA-886B-EBCA7067709D}" ShortID="843454295">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Piano" ID="{8EE95F70-824A-49E1-9988-66648B74B391}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E9DCF923-B38D-41F7-B309-C75E1EDA491F}" ShortID="781179539">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sub" ID="{026D4118-EB77-4E22-8605-95F0AD210FD2}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D4501692-2AA5-43CA-8138-309118C58F50}" ShortID="754491963">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SynthString" ID="{AAD4FBE5-B14B-4D36-A24D-74D9B07A52AB}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopAll" ID="{236A0B40-2A0A-4E4A-AA5C-C3D381F1F7BA}">
+					<ChildrenList>
+						<Action Name="" ID="{A3578EF8-81C4-4049-80F3-A7891399689A}" ShortID="215593081">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

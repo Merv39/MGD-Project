@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7D8D7BF1-A310-43CB-B028-3CF14072684F}" SchemaVersion="110">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{7D8D7BF1-A310-43CB-B028-3CF14072684F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{E442B6BD-B2CC-4B5F-B302-604BBFA690E2}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Arp_noreverb" ID="{DD1FCA1B-ADAF-4B9F-B395-BC351B6DF3F2}" WorkUnitID="{26B1E598-B7BE-4FDB-8338-FA42FC963807}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Volume" ID="{3B6BE39B-E499-4966-AAE3-2651754CC308}"/>
+							<Value>1.11185487771777E-311</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}"/>
+							<Value>0.50199203187251</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>
