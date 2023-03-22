@@ -65,3 +65,4 @@ MGD-Project/Assets/Wwise/
 MGD-Project/WwiseUnityIntegration_Mac_Src.zip
 MGD-Project/WwiseUnityIntegration_Windows_Src.zip
 MGD-Project/MGD-Project_WwiseProject/GeneratedSoundBanks/
+*.prof

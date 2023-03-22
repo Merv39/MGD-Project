@@ -17,7 +17,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="PlayerArousalState" ID="{F512CEA8-7C89-4C0B-A2CE-8B0649EB830A}"/>
-							<Value>0.50199203187251</Value>
+							<Value>0.0649740370138981</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
