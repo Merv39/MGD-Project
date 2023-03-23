@@ -24,13 +24,11 @@ public class InputHandler : MonoBehaviour
         float T2 = Time.time;
         print(T2 - T1);
     }
-
     private void Start()
     {
         arduino = new SerialPort();
         arduino.PortName = "COM3";
         arduino.BaudRate = 9600;
-        //arduino.ReadTimeout = 1;
         arduino.Open();
 
 /*        float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
@@ -49,7 +47,15 @@ public class InputHandler : MonoBehaviour
     //string buffer = ""; //expects 3 character input
     private void Update()
     {
-        int value = -1;
+        //need to set a suitable max min and mid so that the audio effects are triggered
+        int max = 676; //sensor's theoretical max is 1023 but real-world max is 676
+        int min;
+        int mid;       //need to determine a suitable value for neutral level of arousal
+
+
+        //TEMP
+        mid = max / 2;
+        int value = 0;
         try
         {
             value = int.Parse(arduino.ReadLine());
@@ -57,6 +63,7 @@ public class InputHandler : MonoBehaviour
         catch (System.Exception) {
         }
         print(value);
+        print(sigmoid(value-mid));
 
 
         //print((pleasant, activation));
@@ -82,9 +89,6 @@ public class InputHandler : MonoBehaviour
     }
 
     //THIS SECTION IS FOR DIRECT DATA INPUT FROM THE ARDUINO
-
-    //SerialPort 
-
     float mean(float[] values) {
         float sum = 0;
         for (int i = 0; i < values.Length; i++) {
@@ -136,5 +140,47 @@ public class InputHandler : MonoBehaviour
             zVal[i] = (values[i] - meanVal)/deviationVal;
         }
         return zVal;
+    }
+
+    /// <summary>
+    /// Sigmoid expects signed number, where x = 0 returns 0.5
+    /// </summary>
+    float sigmoid(float x) {
+        //different sigmoid functions give different slopes
+        //Steepness: tanh > arctan > logistic
+        //after testing logistic, it seems that logistic is still too high: change L and K of logistic?
+        return logistic(x);
+        //return tanh(x);  
+        //return arctan(x);
+    }
+
+    /// <summary>
+    ///default logistic function
+    /// </summary>
+    float logistic(float x) { return 1 / (1 + Mathf.Exp(-x)); } //range [0, 1]
+
+    /// <summary>
+    ///tanh range [-1, 1] so +1 and divide by 2 to map to range [0, 1]
+    /// </summary>
+    float tanh(float x) {
+        float result = (Mathf.Exp(x) - Mathf.Exp(-x)) / (Mathf.Exp(x) + Mathf.Exp(-x));
+        if (result + 1f == 0) { return 0; }
+        else {
+            return (result + 1f) / 2f;
+        }
+    }
+
+    /// <summary>
+    /// returns arctan mapped to range [0, 1]
+    /// asymptote of arctan(x) is y=(+-)pi/2
+    /// </summary>
+    float arctan(float x)
+    {
+        float result = Mathf.Atan(x);
+        if (result == 0) { return 0.5f; }
+        else
+        {
+            return (result / Mathf.PI) + 0.5f;
+        }
     }
 }
