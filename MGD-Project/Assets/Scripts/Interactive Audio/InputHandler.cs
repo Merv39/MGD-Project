@@ -18,11 +18,11 @@ public class InputHandler : MonoBehaviour
 
     void compareEfficiency(float[] val, System.Func<float[], float> f1)
     {
-        float T1 = Time.time;
+        float T1 = Time.realtimeSinceStartup;
         //function call here
         f1(val);
 
-        float T2 = Time.time;
+        float T2 = Time.realtimeSinceStartup;
         print(T2 - T1);
     }
     private void Start()
@@ -46,11 +46,15 @@ public class InputHandler : MonoBehaviour
 
     //A buffer is needed because Unity's Update() command runs every frame and causes timeout during ReadLine() 
     //string buffer = ""; //expects 3 character input
-    static int samples = 5;
-    List<int> values = new List<int>(); //set this to a history to calculate mean
+    static int samples = 1;
+    List<float> values = new List<float>(); //set this to a history to calculate mean
     //the top of the array values[0] is always the latest value
     private void Update()
     {
+        //print avg frame rate:
+        print("FPS: "+Time.frameCount / Time.time);
+        //GOAL: 60fps
+
         //read data from serial connection and store in values
         try
         {
@@ -62,17 +66,10 @@ public class InputHandler : MonoBehaviour
         //wait for first [samples] number of samples
         if (!(values.Count() < samples))
         {
-            //need to set a suitable max min and mid so that the audio effects are triggered
-            //float max = 676; //sensor's theoretical max is 1023 but real-world max is 676
-            //float min;
-            float mid = mean(values);       //need to determine a suitable value for neutral level of arousal
-
-            print(values[0]);
-            float arousal = sigmoid(values[0] - mid);
-            PlayerStateArousalRTPC.SetGlobalValue(arousal);
+            float zVal = zScore(values)[0];
+            float arousal = sigmoid(values[0]);
+            SetPlayerArousalState(arousal);
         }
-
-
 
         //print((pleasant, activation));
         //float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
@@ -138,14 +135,14 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     /// <param name="values"></param>
     /// <returns>the list of Z scores</returns>
-    float[] zScore(List<float> values) {
+    List<float> zScore(List<float> values) {
         float meanVal = mean(values);
         float deviationVal = standardDeviation(values, meanVal);
         //subtract the mean from the values to center the distribution curve at 0
-        float[] zVal = new float[values.Count];
+        List<float> zVal = new List<float>(values.Count);
         for (int i = 0; i < values.Count; i++)
         {
-            zVal[i] = (values[i] - meanVal)/deviationVal;
+            zVal.Add((values[i] - meanVal)/deviationVal);
         }
         return zVal;
     }
