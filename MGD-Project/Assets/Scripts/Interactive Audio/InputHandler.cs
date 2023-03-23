@@ -16,7 +16,7 @@ public class InputHandler : MonoBehaviour
         PlayerStateArousalRTPC.SetGlobalValue(f);
     }
 
-    void compareEfficiency(float[] val, System.Func<float[], float> f1)
+    void compareEfficiency(List<float> val, System.Func<List<float>, float> f1)
     {
         float T1 = Time.realtimeSinceStartup;
         //function call here
@@ -32,33 +32,20 @@ public class InputHandler : MonoBehaviour
         arduino.BaudRate = 31250; //baud rate any higher caused errors
         arduino.ReadTimeout = 1;    //creating a timeout to avoid taking all of CPU time
         arduino.Open();
-
-/*        float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
-        //compareEfficiency(test, standardDeviation);
-        print(mean(test));
-        print(standardDeviation(test));
-        float[] zVal = zScore(test);
-        for (int i = 0; i < zVal.Length; i++)
-        {
-            print(zVal[i]);
-        }
-        print(mean(zScore(test)));*/
     }
 
-    //Optimizations: buffer, check if values are same
-    //A buffer is needed because Unity's Update() command runs every frame and causes timeout during ReadLine() 
-    //string buffer = ""; //expects 3 character input
-    static int samples = 1;
+    static int samples = 20;
     List<float> values = new List<float>(); //set this to a history to calculate mean
     //the top of the array values[0] is always the latest value
-    string buffer = "";
+
+    string buffer = ""; //expects 3 character input 
     private void Update()
     {
         //print avg frame rate:
-        print("FPS: "+Time.frameCount / Time.time);
+        //print("FPS: "+Time.frameCount / Time.time);
         //GOAL: 60fps (game code is unoptimized so more FPS is needed for a smooth experience)
 
-        //read data from serial connection and store in values
+        //read data from serial connection and store in buffer
         try
         {
             string c = ((char)arduino.ReadChar()).ToString();
@@ -66,13 +53,12 @@ public class InputHandler : MonoBehaviour
             if (!int.TryParse(c, out int _)) //checks if the string is a digit
                 return;
             buffer += c;
-            //values.Insert(0, int.Parse(arduino.ReadLine()));
         }
         catch (System.Exception) {
         }
 
         //the whole sample takes 3 frames using a buffer
-        //this is to allow concurrency and prevent long frametimes
+        //this is to allow concurrency and prevent long frametimes compared to reading the whole line
         if (buffer.Length == 3) {
             //acknowledge and reset
             values.Insert(0, int.Parse(buffer));
@@ -83,15 +69,11 @@ public class InputHandler : MonoBehaviour
         if (!(values.Count() < samples))
         {
             print(values[0]);
-            float zVal = zScore(values)[0];
-            float arousal = sigmoid(values[0]);
+            float zVal = zScore(values)[0]; //the z score of the newest samepl
+            float arousal = sigmoid(zVal);
+            print(arousal);
             SetPlayerArousalState(arousal);
         }
-
-        //print((pleasant, activation));
-        //float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
-        //print(mean(test));
-        //print(standardDeviation(test));
     }
 
     //THIS SECTION IS FOR THE PROTOTYPE WITH PYTHON TO MIDI
