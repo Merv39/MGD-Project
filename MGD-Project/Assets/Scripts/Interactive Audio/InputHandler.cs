@@ -8,6 +8,7 @@ public class InputHandler : MonoBehaviour
     float pleasant;
     float activation;
     public AK.Wwise.RTPC PlayerStateArousalRTPC;
+    SerialPort arduino;
 
     void SetPlayerArousalState(float f)
     {
@@ -26,7 +27,13 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
+        arduino = new SerialPort();
+        arduino.PortName = "COM3";
+        arduino.BaudRate = 9600;
+        //arduino.ReadTimeout = 1;
+        arduino.Open();
+
+/*        float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
         //compareEfficiency(test, standardDeviation);
         print(mean(test));
         print(standardDeviation(test));
@@ -35,10 +42,23 @@ public class InputHandler : MonoBehaviour
         {
             print(zVal[i]);
         }
-        print(mean(zScore(test)));
+        print(mean(zScore(test)));*/
     }
+
+    //A buffer is needed because Unity's Update() command runs every frame and causes timeout during ReadLine() 
+    //string buffer = ""; //expects 3 character input
     private void Update()
     {
+        int value = -1;
+        try
+        {
+            value = int.Parse(arduino.ReadLine());
+        }
+        catch (System.Exception) {
+        }
+        print(value);
+
+
         //print((pleasant, activation));
         //float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
         //print(mean(test));
