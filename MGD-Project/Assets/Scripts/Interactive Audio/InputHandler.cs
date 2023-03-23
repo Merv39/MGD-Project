@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-using System.Collections;
+using System.Collections.Generic;
 using System.IO.Ports;
+using System.Linq;
 public class InputHandler : MonoBehaviour
 {
     float pleasant;
@@ -45,25 +46,32 @@ public class InputHandler : MonoBehaviour
 
     //A buffer is needed because Unity's Update() command runs every frame and causes timeout during ReadLine() 
     //string buffer = ""; //expects 3 character input
+    static int samples = 5;
+    List<int> values = new List<int>(); //set this to a history to calculate mean
+    //the top of the array values[0] is always the latest value
     private void Update()
     {
-        //need to set a suitable max min and mid so that the audio effects are triggered
-        int max = 676; //sensor's theoretical max is 1023 but real-world max is 676
-        int min;
-        int mid;       //need to determine a suitable value for neutral level of arousal
-
-
-        //TEMP
-        mid = max / 2;
-        int value = 0;
+        //read data from serial connection and store in values
         try
         {
-            value = int.Parse(arduino.ReadLine());
+            values.Insert(0, int.Parse(arduino.ReadLine()));
         }
         catch (System.Exception) {
         }
-        print(value);
-        print(sigmoid(value-mid));
+
+        //wait for first [samples] number of samples
+        if (!(values.Count() < samples))
+        {
+            //need to set a suitable max min and mid so that the audio effects are triggered
+            //float max = 676; //sensor's theoretical max is 1023 but real-world max is 676
+            //float min;
+            float mid = mean(values);       //need to determine a suitable value for neutral level of arousal
+
+            print(values[0]);
+            float arousal = sigmoid(values[0] - mid);
+            PlayerStateArousalRTPC.SetGlobalValue(arousal);
+        }
+
 
 
         //print((pleasant, activation));
@@ -182,5 +190,9 @@ public class InputHandler : MonoBehaviour
         {
             return (result / Mathf.PI) + 0.5f;
         }
+    }
+
+    float map(float n, float[] oldRange, float[] newRange) {
+        return (n - oldRange[0]) / (oldRange[1] - oldRange[0]) * (newRange[1] - newRange[0]) + newRange[0];
     }
 }
