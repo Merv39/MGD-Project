@@ -44,11 +44,13 @@ public class InputHandler : MonoBehaviour
         print(mean(zScore(test)));*/
     }
 
+    //Optimizations: buffer, check if values are same
     //A buffer is needed because Unity's Update() command runs every frame and causes timeout during ReadLine() 
     //string buffer = ""; //expects 3 character input
     static int samples = 1;
     List<float> values = new List<float>(); //set this to a history to calculate mean
     //the top of the array values[0] is always the latest value
+    string buffer = "";
     private void Update()
     {
         //print avg frame rate:
@@ -58,9 +60,18 @@ public class InputHandler : MonoBehaviour
         //read data from serial connection and store in values
         try
         {
-            values.Insert(0, int.Parse(arduino.ReadLine()));
+            buffer.Insert(0, ((char)arduino.ReadChar()).ToString());
+            //values.Insert(0, int.Parse(arduino.ReadLine()));
         }
         catch (System.Exception) {
+        }
+
+        //the whole sample takes 3 frames using a buffer
+        //this is to allow concurrency and prevent long frametimes
+        if (buffer.Length == 3) {
+            //acknowledge and reset
+            values.Insert(0, int.Parse(buffer));
+            buffer = "";
         }
 
         //wait for first [samples] number of samples
