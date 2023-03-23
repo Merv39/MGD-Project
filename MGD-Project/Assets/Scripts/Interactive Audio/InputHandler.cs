@@ -97,38 +97,38 @@ public class InputHandler : MonoBehaviour
     }
 
     //THIS SECTION IS FOR DIRECT DATA INPUT FROM THE ARDUINO
-    float mean(float[] values) {
+    float mean(List<float> values) {
         float sum = 0;
-        for (int i = 0; i < values.Length; i++) {
+        for (int i = 0; i < values.Count; i++) {
             sum += values[i];
         }
-        sum = sum / values.Length;
+        sum = sum / values.Count;
         return sum;
     }
 
-    float standardDeviation(float[] values) {
+    float standardDeviation(List<float> values) {
         //calculate variance
         float sum = 0;
         float meanVal = mean(values);
-        for (int i = 0; i < values.Length; i++)
+        for (int i = 0; i < values.Count; i++)
         {
             sum += Mathf.Pow(values[i] - meanVal, 2) ;
         }
-        float variance = sum / values.Length;
+        float variance = sum / values.Count;
         //sd = sqrt(variance)
         return Mathf.Sqrt(variance);
     }
 
     //Overloaded version for efficiency if meanVal already calculated
-    public float standardDeviation(float[] values, float meanVal)
+    public float standardDeviation(List<float> values, float meanVal)
     {
         //calculate variance
         float sum = 0;
-        for (int i = 0; i < values.Length; i++)
+        for (int i = 0; i < values.Count; i++)
         {
             sum += Mathf.Pow(values[i] - meanVal, 2);
         }
-        float variance = sum / values.Length;
+        float variance = sum / values.Count;
         //sd = sqrt(variance)
         return Mathf.Sqrt(variance);
     }
@@ -138,12 +138,12 @@ public class InputHandler : MonoBehaviour
     /// </summary>
     /// <param name="values"></param>
     /// <returns>the list of Z scores</returns>
-    float[] zScore(float[] values) {
+    float[] zScore(List<float> values) {
         float meanVal = mean(values);
         float deviationVal = standardDeviation(values, meanVal);
         //subtract the mean from the values to center the distribution curve at 0
-        float[] zVal = new float[values.Length];
-        for (int i = 0; i < values.Length; i++)
+        float[] zVal = new float[values.Count];
+        for (int i = 0; i < values.Count; i++)
         {
             zVal[i] = (values[i] - meanVal)/deviationVal;
         }
