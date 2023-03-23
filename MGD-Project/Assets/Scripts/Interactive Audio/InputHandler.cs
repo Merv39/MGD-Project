@@ -29,7 +29,8 @@ public class InputHandler : MonoBehaviour
     {
         arduino = new SerialPort();
         arduino.PortName = "COM3";
-        arduino.BaudRate = 9600;
+        arduino.BaudRate = 31250; //baud rate any higher caused errors
+        arduino.ReadTimeout = 1;    //creating a timeout to avoid taking all of CPU time
         arduino.Open();
 
 /*        float[] test = { 9, 10, 12, 13, 13, 13, 15, 15, 16, 16, 18, 22, 23, 24, 24, 25 };
@@ -55,12 +56,16 @@ public class InputHandler : MonoBehaviour
     {
         //print avg frame rate:
         print("FPS: "+Time.frameCount / Time.time);
-        //GOAL: 60fps
+        //GOAL: 60fps (game code is unoptimized so more FPS is needed for a smooth experience)
 
         //read data from serial connection and store in values
         try
         {
-            buffer.Insert(0, ((char)arduino.ReadChar()).ToString());
+            string c = ((char)arduino.ReadChar()).ToString();
+
+            if (!int.TryParse(c, out int _)) //checks if the string is a digit
+                return;
+            buffer += c;
             //values.Insert(0, int.Parse(arduino.ReadLine()));
         }
         catch (System.Exception) {
@@ -77,6 +82,7 @@ public class InputHandler : MonoBehaviour
         //wait for first [samples] number of samples
         if (!(values.Count() < samples))
         {
+            print(values[0]);
             float zVal = zScore(values)[0];
             float arousal = sigmoid(values[0]);
             SetPlayerArousalState(arousal);
