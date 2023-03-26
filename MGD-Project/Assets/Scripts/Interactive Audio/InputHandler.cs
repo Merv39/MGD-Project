@@ -34,7 +34,7 @@ public class InputHandler : MonoBehaviour
         arduino.Open();
     }
 
-    static int samples = 20;
+    static int samples = 20; //change the number of samples to change the variability of the signal
     List<float> values = new List<float>(); //set this to a history to calculate mean
     //the top of the array values[0] is always the latest value
 
