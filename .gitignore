@@ -67,3 +67,8 @@ MGD-Project/WwiseUnityIntegration_Windows_Src.zip
 MGD-Project/MGD-Project_WwiseProject/GeneratedSoundBanks/
 *.prof
 *.bnk
+MGD-Project/MGD-Project_WwiseProject/MGD-Project_WwiseProject.Hero.validationcache
+MGD-Project/MGD-Project_WwiseProject/.cache/SoundBankInfoCache.dat
+MGD-Project/MGD-Project_WwiseProject/MGD-Project_WwiseProject.Hero.wsettings
+MGD-Project/UserSettings/Layouts/default-2022.dwlt
+MGD-Project/Assets/StreamingAssets/Audio/GeneratedSoundBanks/ProjectInfo.xml
