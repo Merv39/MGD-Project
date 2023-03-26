@@ -1,12 +1,27 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1183385154	Music_Player			\Default Work Unit\Music_Player	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	242548508	PlayerArousalState			\Default Work Unit\PlayerArousalState	
+
 Effect plug-ins	ID	Name	Type				Notes
 	86135251	Flanger (Custom)	Wwise Flanger			
-	429377562	Low Pass	Wwise Parametric EQ			
 	432801578	Guitar Distortion (Custom)	Wwise Guitar Distortion			
+	463515912	Guitar Distortion (Custom)	Wwise Guitar Distortion			
+	666558909	Guitar Distortion (Custom)	Wwise Guitar Distortion			
+	761320926	Guitar Distortion (Custom)	Wwise Guitar Distortion			
+	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
+	2513915904	Hall_Large	Wwise RoomVerb			
 	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	1057543038	Arp_noreverb	C:\Users\Hero\Documents\GitHub\MGD-Project1\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Arp_noreverb_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Arp_noreverb		14043572
+	190446513	Chiptune	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Chiptune_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Chiptune		14043572
+	230362800	Piano	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Piano_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Piano		14043572
+	473312615	Bass	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Bass_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Bass		14043572
+	698519120	Sub	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Sub_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Sub		14043572
+	717098215	Atmosphere	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Atmosphere_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Atmosphere		14043572
+	755715289	Drums	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Drums_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Drums		14043572
+	911754284	SynthString	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\SynthString_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\SynthString		14043572
+	973255442	HarpCeleste	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\HarpCeleste_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\HarpCeleste		14043572
+	1057543038	Arp_noreverb	C:\Users\Hero\Documents\GitHub\MGD-Project\MGD-Project\MGD-Project_WwiseProject\.cache\Windows\SFX\Stems\Arp_noreverb_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Stems\Arp_noreverb		14043572
 

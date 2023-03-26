@@ -9,23 +9,68 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{63B104F4-FB9B-4A28-BFA2-FBF910B4DF0C}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B7AD5500-6663-87E3-0BDA-EEBDD5BBD102}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<ShareSets>
+					<Plugin Id="2998002419" Name="Boost_3dB_10KHz" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
-				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2998002419"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="242548508" Name="PlayerArousalState"/>
+				<GameParameter Id="2415836739" Name="Volume"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3157003241" Type="User" Language="SFX" Hash="{09FF7EEA-2427-EC01-776A-777D0808688B}">
+		<SoundBank Id="3157003241" Type="User" Language="SFX" Hash="{2B475F7C-DE18-BF78-0CE0-C82BE8F631B5}">
 			<ShortName>Test</ShortName>
 			<Path>Test.bnk</Path>
 			<Media>
+				<File Id="190446513" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Chiptune.wav</ShortName>
+					<CachePath>SFX/Stems/Chiptune_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="230362800" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Piano.wav</ShortName>
+					<CachePath>SFX/Stems/Piano_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="473312615" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Bass.wav</ShortName>
+					<CachePath>SFX/Stems/Bass_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="698519120" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Sub.wav</ShortName>
+					<CachePath>SFX/Stems/Sub_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="717098215" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Atmosphere.wav</ShortName>
+					<CachePath>SFX/Stems/Atmosphere_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="755715289" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\Drums.wav</ShortName>
+					<CachePath>SFX/Stems/Drums_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="911754284" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\SynthString.wav</ShortName>
+					<CachePath>SFX/Stems/SynthString_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="973255442" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Stems\HarpCeleste.wav</ShortName>
+					<CachePath>SFX/Stems/HarpCeleste_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="1057543038" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Stems\Arp_noreverb.wav</ShortName>
 					<CachePath>SFX/Stems/Arp_noreverb_D79FB2B7.wem</CachePath>
@@ -34,31 +79,50 @@
 			<Plugins>
 				<Custom>
 					<Plugin Id="86135251" Name="Flanger (Custom)" LibName="Wwise Flanger" LibId="8192003"/>
-					<Plugin Id="429377562" Name="Low Pass" LibName="Wwise Parametric EQ" LibId="6881283"/>
 					<Plugin Id="432801578" Name="Guitar Distortion (Custom)" LibName="Wwise Guitar Distortion" LibId="8257539"/>
+					<Plugin Id="463515912" Name="Guitar Distortion (Custom)" LibName="Wwise Guitar Distortion" LibId="8257539"/>
+					<Plugin Id="666558909" Name="Guitar Distortion (Custom)" LibName="Wwise Guitar Distortion" LibId="8257539"/>
+					<Plugin Id="761320926" Name="Guitar Distortion (Custom)" LibName="Wwise Guitar Distortion" LibId="8257539"/>
 				</Custom>
 				<ShareSets>
+					<Plugin Id="1008402193" Name="Low_Pass_20KHz" LibName="Wwise Parametric EQ" LibId="6881283"/>
+					<Plugin Id="2513915904" Name="Hall_Large" LibName="Wwise RoomVerb" LibId="7733251"/>
 					<Plugin Id="3216246379" Name="Space_Dreaming" LibName="Wwise RoomVerb" LibId="7733251"/>
 				</ShareSets>
 			</Plugins>
 			<Events>
 				<Event Id="1183385154" Name="Music_Player" DurationType="Infinite">
 					<MediaRefs>
+						<MediaRef Id="190446513"/>
+						<MediaRef Id="230362800"/>
+						<MediaRef Id="473312615"/>
+						<MediaRef Id="698519120"/>
+						<MediaRef Id="717098215"/>
+						<MediaRef Id="755715289"/>
+						<MediaRef Id="911754284"/>
+						<MediaRef Id="973255442"/>
 						<MediaRef Id="1057543038"/>
 					</MediaRefs>
 					<PluginRefs>
 						<Custom>
 							<PluginRef Id="86135251"/>
-							<PluginRef Id="429377562"/>
 							<PluginRef Id="432801578"/>
+							<PluginRef Id="463515912"/>
+							<PluginRef Id="666558909"/>
+							<PluginRef Id="761320926"/>
 						</Custom>
 						<ShareSets>
+							<PluginRef Id="1008402193"/>
+							<PluginRef Id="2513915904"/>
 							<PluginRef Id="3216246379"/>
 						</ShareSets>
 					</PluginRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="242548508" Name="PlayerArousalState"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C686CF04-8A19-E25F-F766-C253B57CACB4}</FileHash>
+	<FileHash>{8DA074D2-7301-71A9-53FF-9669041EABB6}</FileHash>
 </SoundBanksInfo>

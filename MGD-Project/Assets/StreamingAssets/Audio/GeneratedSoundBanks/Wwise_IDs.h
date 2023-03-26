@@ -19,6 +19,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID PLAYERAROUSALSTATE = 242548508U;
+        static const AkUniqueID VOLUME = 2415836739U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
