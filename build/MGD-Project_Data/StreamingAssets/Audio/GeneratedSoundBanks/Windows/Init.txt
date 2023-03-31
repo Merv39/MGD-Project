@@ -1,0 +1,14 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	242548508	PlayerArousalState			\Default Work Unit\PlayerArousalState	
+	2415836739	Volume			\Default Work Unit\Volume	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2998002419	Boost_3dB_10KHz	Wwise Parametric EQ			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+
