@@ -10,9 +10,11 @@ public class InputHandler : MonoBehaviour
     float activation;
     public AK.Wwise.RTPC PlayerStateArousalRTPC;
     SerialPort arduino;
+    float currentValue;
 
     void SetPlayerArousalState(float f)
     {
+        currentValue = f;
         PlayerStateArousalRTPC.SetGlobalValue(f);
     }
 
@@ -29,23 +31,27 @@ public class InputHandler : MonoBehaviour
     {
         arduino = new SerialPort();
         arduino.PortName = "COM3";
-        arduino.BaudRate = 31250; //baud rate any higher caused errors
+        arduino.BaudRate = 600; //baud rate any higher caused errors
         arduino.ReadTimeout = 1;    //creating a timeout to avoid taking all of CPU time
         arduino.Open();
+
+        SetPlayerArousalState(0.5f);
     }
 
     static int samples = 20; //change the number of samples to change the variability of the signal
     List<float> values = new List<float>(); //set this to a history to calculate mean
+    int heartRate;
     //the top of the array values[0] is always the latest value
 
-    string buffer = ""; //expects 3 character input 
+    string buffer = ""; //expects 3 character input
+    bool toggle = true; //true = bufferGSR, false = bufferPPG 
     private void Update()
     {
         //print avg frame rate:
         //print("FPS: "+Time.frameCount / Time.time);
         //GOAL: 60fps (game code is unoptimized so more FPS is needed for a smooth experience)
 
-        //read data from serial connection and store in buffer
+        //read data from serial connection and store in bufferGSR
         try
         {
             string c = ((char)arduino.ReadChar()).ToString();
@@ -57,11 +63,13 @@ public class InputHandler : MonoBehaviour
         catch (System.Exception) {
         }
 
-        //the whole sample takes 3 frames using a buffer
+        //the whole sample takes 3 frames using a bufferGSR
         //this is to allow concurrency and prevent long frametimes compared to reading the whole line
         if (buffer.Length == 3) {
             //acknowledge and reset
-            values.Insert(0, int.Parse(buffer));
+            if (toggle) { values.Insert(0, int.Parse(buffer)); }
+            else { heartRate = int.Parse(buffer); }
+            toggle = !toggle;
             buffer = "";
         }
 
@@ -71,9 +79,36 @@ public class InputHandler : MonoBehaviour
             print(values[0]);
             float zVal = zScore(values)[0]; //the z score of the newest samepl
             float arousal = sigmoid(zVal);
-            print(arousal);
-            SetPlayerArousalState(arousal);
+            print("Arousal:"+arousal);
+            print("BPM:" + heartRate);
+            print("logistic " + logistic(heartRate, 70, 0.1f));
+            if (heartRate > 40 && heartRate < 200) //threshold for extremeties
+            {
+                //Increase by 0.1 until the value
+                float arousalValue = 0.4f * arousal + 0.6f * logistic(heartRate, 70, 0.1f); //weighted values
+                if (currentValue < arousalValue)
+                {
+                    SetPlayerArousalState(currentValue + 0.001f);
+                }
+                else if (currentValue > arousalValue)
+                {
+                    SetPlayerArousalState(currentValue - 0.001f);
+                }
+                //SetPlayerArousalState(arousal * logistic(heartRate, 80, 0.1f));
+            }
+            else {
+                //if values are invalid, slowly return to neutral
+                if (currentValue < 0.5f)
+                {
+                    SetPlayerArousalState(currentValue + 0.001f);
+                }
+                else if (currentValue > 0.5f)
+                {
+                    SetPlayerArousalState(currentValue - 0.001f);
+                }
+            }
         }
+
     }
 
     //THIS SECTION IS FOR THE PROTOTYPE WITH PYTHON TO MIDI
@@ -162,6 +197,9 @@ public class InputHandler : MonoBehaviour
     ///default logistic function
     /// </summary>
     float logistic(float x) { return 1 / (1 + Mathf.Exp(-x)); } //range [0, 1]
+    float logistic(float x, float midpoint, float steepness) {
+        return 1 / (1 + Mathf.Exp(steepness * -(x-midpoint)));
+    }
 
     /// <summary>
     ///tanh range [-1, 1] so +1 and divide by 2 to map to range [0, 1]
