@@ -44,7 +44,6 @@ public class InputHandler : MonoBehaviour
     //the top of the array values[0] is always the latest value
 
     string buffer = ""; //expects 3 character input
-    bool toggle = true; //true = bufferGSR, false = bufferPPG 
     private void Update()
     {
         //print avg frame rate:
@@ -63,14 +62,17 @@ public class InputHandler : MonoBehaviour
         catch (System.Exception) {
         }
 
-        //the whole sample takes 3 frames using a bufferGSR
+        //the whole sample takes 6 frames 
         //this is to allow concurrency and prevent long frametimes compared to reading the whole line
-        if (buffer.Length == 3) {
+        if (buffer.Length == 6) { //expects 6 digits
             //acknowledge and reset
-            if (toggle) { values.Insert(0, int.Parse(buffer)); }
-            else { heartRate = int.Parse(buffer); }
-            toggle = !toggle;
+            //first 3 digits are GSR, then Heart Rate
+            values.Insert(0, int.Parse(buffer.Substring(0, 3)));
+            heartRate = int.Parse(buffer.Substring(3, 3));
             buffer = "";
+            //Discard Serial buffer to prevent serial buffer overflow
+            arduino.DiscardOutBuffer();
+            arduino.DiscardInBuffer();
         }
 
         //wait for first [samples] number of samples
@@ -81,11 +83,11 @@ public class InputHandler : MonoBehaviour
             float arousal = sigmoid(zVal);
             print("Arousal:"+arousal);
             print("BPM:" + heartRate);
-            print("logistic " + logistic(heartRate, 70, 0.1f));
+            print("logistic " + logistic(heartRate, 75, 0.1f));
             if (heartRate > 40 && heartRate < 200) //threshold for extremeties
             {
                 //Increase by 0.1 until the value
-                float arousalValue = 0.4f * arousal + 0.6f * logistic(heartRate, 70, 0.1f); //weighted values
+                float arousalValue = 0.4f * arousal + 0.6f * logistic(heartRate, 75, 0.1f); //weighted values
                 if (currentValue < arousalValue)
                 {
                     SetPlayerArousalState(currentValue + 0.001f);
