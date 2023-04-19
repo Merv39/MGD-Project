@@ -64,14 +64,14 @@ public class InputHandler : MonoBehaviour
 
         //the whole sample takes 6 frames 
         //this is to allow concurrency and prevent long frametimes compared to reading the whole line
-        if (buffer.Length == 6) { //expects 6 digits
+        if (buffer.Length >= 6) { //expects 6 digits
             //acknowledge and reset
             //first 3 digits are GSR, then Heart Rate
             values.Insert(0, int.Parse(buffer.Substring(0, 3)));
             heartRate = int.Parse(buffer.Substring(3, 3));
             buffer = "";
             //Discard Serial buffer to prevent serial buffer overflow
-            arduino.DiscardOutBuffer();
+            //arduino.DiscardOutBuffer();
             arduino.DiscardInBuffer();
         }
 
@@ -90,11 +90,11 @@ public class InputHandler : MonoBehaviour
                 float arousalValue = 0.4f * arousal + 0.6f * logistic(heartRate, 75, 0.1f); //weighted values
                 if (currentValue < arousalValue)
                 {
-                    SetPlayerArousalState(currentValue + 0.001f);
+                    SetPlayerArousalState(currentValue + 0.0005f);
                 }
                 else if (currentValue > arousalValue)
                 {
-                    SetPlayerArousalState(currentValue - 0.001f);
+                    SetPlayerArousalState(currentValue - 0.0005f);
                 }
                 //SetPlayerArousalState(arousal * logistic(heartRate, 80, 0.1f));
             }
@@ -102,11 +102,11 @@ public class InputHandler : MonoBehaviour
                 //if values are invalid, slowly return to neutral
                 if (currentValue < 0.5f)
                 {
-                    SetPlayerArousalState(currentValue + 0.001f);
+                    SetPlayerArousalState(currentValue + 0.0010f);
                 }
                 else if (currentValue > 0.5f)
                 {
-                    SetPlayerArousalState(currentValue - 0.001f);
+                    SetPlayerArousalState(currentValue - 0.0010f);
                 }
             }
         }
