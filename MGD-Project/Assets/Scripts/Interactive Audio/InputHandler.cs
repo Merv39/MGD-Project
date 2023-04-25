@@ -43,7 +43,7 @@ public class InputHandler : MonoBehaviour
     int heartRate;
     //the top of the array values[0] is always the latest value
 
-    string buffer = ""; //expects 3 character input
+    string buffer = ""; //expects 6 character input
     private void Update()
     {
         //print avg frame rate:
@@ -54,7 +54,11 @@ public class InputHandler : MonoBehaviour
         try
         {
             string c = ((char)arduino.ReadChar()).ToString();
-
+            if (c.Contains("\n"))
+            {
+                buffer = "";
+                return;
+            }
             if (!int.TryParse(c, out int _)) //checks if the string is a digit
                 return;
             buffer += c;
@@ -64,7 +68,8 @@ public class InputHandler : MonoBehaviour
 
         //the whole sample takes 6 frames 
         //this is to allow concurrency and prevent long frametimes compared to reading the whole line
-        if (buffer.Length == 6) { //expects 6 digits
+        if (buffer.Length >= 6) { //expects 6 digits
+            print(buffer);
             //acknowledge and reset
             //first 3 digits are GSR, then Heart Rate
             values.Insert(0, int.Parse(buffer.Substring(0, 3)));
@@ -78,12 +83,12 @@ public class InputHandler : MonoBehaviour
         //wait for first [samples] number of samples
         if (!(values.Count() < samples))
         {
-            print(values[0]);
+            //print(values[0]);
             float zVal = zScore(values)[0]; //the z score of the newest samepl
             float arousal = sigmoid(zVal);
-            print("Arousal:"+arousal);
-            print("BPM:" + heartRate);
-            print("logistic " + logistic(heartRate, 75, 0.1f));
+            //print("Arousal:"+arousal);
+            //print("BPM:" + heartRate);
+            //print("logistic " + logistic(heartRate, 75, 0.1f));
             if (heartRate > 40 && heartRate < 200) //threshold for extremeties
             {
                 //Increase by 0.1 until the value
